@@ -45,7 +45,7 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
         <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-lg shadow-blue-500/30">
           <span class="i-tabler-bolt h-5 w-5"></span>
         </span>
-        <span class="text-[15px] font-semibold tracking-tight text-white sm:text-base">{t.brand}</span>
+        <span class="hidden text-[15px] font-semibold tracking-tight text-white sm:inline sm:text-base">{t.brand}</span>
       </a>
 
       <nav class="hidden items-center gap-1 md:flex" aria-label={t.nav.services}>
@@ -120,7 +120,7 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
             {t.badge}
           </span>
 
-          <h1 class="fade-up mt-5 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl" style="animation-delay:.05s">
+          <h1 class="fade-up mt-5 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl" style="animation-delay:.05s">
             {t.hero.a} <span class="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">{t.hero.b}</span> {t.hero.c}
           </h1>
 
@@ -149,12 +149,12 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
           </ul>
         </div>
 
-        <dl class="mt-12 grid max-w-2xl grid-cols-3 gap-3 sm:mt-16 sm:gap-5">
+        <dl class="mt-12 grid max-w-2xl grid-cols-3 gap-2.5 sm:mt-16 sm:gap-5">
           {
             t.stats.map((s, i) => (
-              <div class="fade-up rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur sm:p-5" style={`animation-delay:${0.25 + i * 0.05}s`}>
-                <dt class="text-2xl font-bold text-white sm:text-3xl">{s.value}</dt>
-                <dd class="mt-1 text-xs text-slate-400 sm:text-sm">{s.label}</dd>
+              <div class="fade-up min-w-0 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur sm:p-5" style={`animation-delay:${0.25 + i * 0.05}s`}>
+                <dt class="text-xl font-bold text-white sm:text-3xl">{s.value}</dt>
+                <dd class="mt-1 text-[11px] leading-snug text-slate-400 sm:text-sm">{s.label}</dd>
               </div>
             ))
           }
@@ -177,7 +177,7 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
         <div class="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {
             services.map((s) => (
-              <article class="card card-hover group">
+              <article class="card card-hover group min-w-0">
                 <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 ring-1 ring-blue-100 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:ring-blue-600">
                   <span class={`${s.icon} h-6 w-6`}></span>
                 </span>
@@ -208,7 +208,7 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
                   <span class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-slate-900 text-white">
                     <span class={`${item.icon} h-6 w-6`}></span>
                   </span>
-                  <div>
+                  <div class="min-w-0">
                     <h3 class="text-base font-semibold text-slate-900">{item.title}</h3>
                     <p class="mt-1 text-sm leading-relaxed text-slate-600">{item.text}</p>
                   </div>
@@ -260,7 +260,7 @@ const aboutItems = t.about.items.map((item, i) => ({ ...item, icon: aboutIcons[i
         <div class="mx-auto mt-10 grid max-w-4xl gap-5 sm:mt-12 sm:grid-cols-3">
           {
             aboutItems.map((c) => (
-              <div class="card card-hover text-center">
+              <div class="card card-hover min-w-0 text-center">
                 <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 ring-1 ring-blue-100">
                   <span class={`${c.icon} h-6 w-6`}></span>
                 </span>
