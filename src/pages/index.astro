@@ -17,12 +17,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <a href="#about" class="text-sm font-medium text-neutral-700 transition-colors hover:text-blue-600">Մեր մասին</a>
         <a href="#contact" class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.995]">Կապ</a>
       </nav>
-      <button class="inline-flex items-center justify-center rounded-lg p-2 text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 md:hidden" aria-label="Բացեք ընտրացանկը">
+      <button id="menuBtn" class="inline-flex items-center justify-center rounded-lg p-2 text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 md:hidden" aria-label="Բացեք ընտրացանկը" aria-expanded="false" aria-controls="mobileMenu">
         <div class="i-tabler-menu h-5 w-5"></div>
       </button>
     </div>
   </header>
 
+      <div id="mobileMenu" class="md:hidden fixed inset-x-0 top-14 z-20 hidden border-b border-neutral-200 bg-white/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-2">
+        <a href="#services" class="rounded-lg px-2 py-2.5 text-base font-medium text-neutral-700 hover:bg-neutral-100">Ծառայություններ</a>
+        <a href="#smart-home" class="rounded-lg px-2 py-2.5 text-base font-medium text-neutral-700 hover:bg-neutral-100">Խելացի Տներ</a>
+        <a href="#about" class="rounded-lg px-2 py-2.5 text-base font-medium text-neutral-700 hover:bg-neutral-100">Մեր մասին</a>
+        <a href="#contact" class="mt-1 inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-base font-medium text-white">Կապ</a>
+      </nav>
+    </div>
   <main>
     <section class="relative overflow-hidden bg-gradient-to-b from-white to-neutral-50">
       <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
