@@ -1,57 +1,305 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const nav = [
+  { href: "#services", label: "Ծառայություններ" },
+  { href: "#smart-home", label: "Խելացի տներ" },
+  { href: "#about", label: "Մեր մասին" },
+];
+
+const services = [
+  {
+    icon: "i-tabler-cable",
+    title: "Էլեկտրամոնտաժ",
+    text: "Բնակելի և կոմերցիոն օբյեկտների էլեկտրական ցանցերի նախագծում և տեղադրում։",
+  },
+  {
+    icon: "i-tabler-tools",
+    title: "Սպասարկում և վերանորոգում",
+    text: "Ախտորոշում, անսարքությունների վերացում և կանոնավոր տեխնիկական սպասարկում։",
+  },
+  {
+    icon: "i-tabler-home-automation",
+    title: "Խելացի տներ",
+    text: "Լուսավորության, ջեռուցման, անվտանգության և էներգիայի կառավարման ավտոմատացում։",
+  },
+  {
+    icon: "i-tabler-shield-check",
+    title: "Անվտանգություն",
+    text: "Հրդեհաշիջման համակարգեր, արտակարգ իրավիճակների կանխարգելում և պաշտպանիչ սարքեր։",
+  },
+  {
+    icon: "i-tabler-bolt",
+    title: "Սարքերի տեղադրում",
+    text: "Վահանակներ, հաշվիչներ, ավտոմատ անջատիչներ, լուսավորություն և ուժային սարքավորումներ։",
+  },
+  {
+    icon: "i-tabler-leaf",
+    title: "Էներգաարդյունավետություն",
+    text: "Էներգախնայող լուծումներ՝ LED լուսավորություն, խելացի հաշվառում և ժամանակացույցեր։",
+  },
+];
+
+const smart = [
+  {
+    icon: "i-tabler-device-analytics",
+    title: "Կենտրոնացված կառավարում",
+    text: "Մեկ հավելվածով կառավարեք լուսավորությունը, ջերմաստիճանը և մյուս համակարգերը։",
+  },
+  {
+    icon: "i-tabler-shield-lock",
+    title: "Անվտանգություն 24/7",
+    text: "Խելացի մուտքի համակարգեր, տեսահսկում և ահազանգում ցանկացած պահի։",
+  },
+  {
+    icon: "i-tabler-leaf",
+    title: "Էներգաարդյունավետություն",
+    text: "Ավտոմատացում, որը նվազեցնում է էլեկտրաէներգիայի ամսական ծախսերը։",
+  },
+];
+
+const stats = [
+  { value: "5+", label: "Տարվա փորձ" },
+  { value: "100+", label: "Կատարված աշխատանք" },
+  { value: "100%", label: "Անվտանգություն" },
+];
 ---
 
 <BaseLayout>
-  <header class="sticky top-0 z-20 border-b border-neutral-200 bg-white/90 backdrop-blur">
-    <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
-      <a href="/" class="flex items-center gap-2">
-        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white sm:h-9 sm:w-9 sm:text-sm">EH</div>
-        <span class="text-sm font-semibold sm:text-base lg:text-lg">Էլեկտրիկ Հայաստան</span>
+  <header class="sticky top-0 z-40 border-b border-neutral-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a href="/" class="flex items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white">EH</span>
+        <span class="text-base font-semibold sm:text-lg">Էլեկտրիկ Հայաստան</span>
       </a>
-      <nav class="hidden items-center gap-6 md:flex">
-        <a href="#services" class="text-sm font-medium text-neutral-700 hover:text-blue-600">Ծառայություններ</a>
-        <a href="#smart-home" class="text-sm font-medium text-neutral-700 hover:text-blue-600">Խելացի Տներ</a>
-        <a href="#about" class="text-sm font-medium text-neutral-700 hover:text-blue-600">Մեր մասին</a>
-        <a href="#contact" class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Կապ</a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Գլխավոր">
+        {nav.map((item) => (
+          <a href={item.href} class="text-sm font-medium text-neutral-700 transition-colors hover:text-blue-600">
+            {item.label}
+          </a>
+        ))}
+        <a href="#contact" class="inline-flex min-h-9 items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+          Կապ
+        </a>
       </nav>
-      <button id="menuBtn" class="inline-flex items-center justify-center rounded-lg p-2 md:hidden" aria-label="Menu" aria-expanded="false">
-        <div class="i-tabler-menu h-5 w-5"></div>
+
+      <button
+        id="menuBtn"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-neutral-700 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 md:hidden"
+        aria-label="Բացել ընտրացանկը"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
+        <span id="menuIconOpen" class="i-tabler-menu h-6 w-6"></span>
+        <span id="menuIconClose" class="i-tabler-x hidden h-6 w-6"></span>
       </button>
     </div>
+
+    <div id="mobileMenu" class="hidden border-t border-neutral-200 bg-white md:hidden">
+      <nav class="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6" aria-label="Բջջային ընտրացանկ">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            class="flex min-h-12 items-center rounded-lg px-3 text-base font-medium text-neutral-800 transition-colors hover:bg-neutral-100"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          class="mb-1 mt-2 inline-flex min-h-12 items-center justify-center rounded-lg bg-blue-600 px-4 text-base font-medium text-white transition-colors hover:bg-blue-700"
+        >
+          Կապ
+        </a>
+      </nav>
+    </div>
   </header>
-  <div id="mobileMenu" class="md:hidden fixed inset-x-0 top-14 z-20 hidden border-b border-neutral-200 bg-white">
-    <nav class="flex flex-col px-4 py-2">
-      <a href="#services" class="min-h-[44px] flex items-center px-2">Ծառայություններ</a>
-      <a href="#smart-home" class="min-h-[44px] flex items-center px-2">Խելացի Տներ</a>
-      <a href="#about" class="min-h-[44px] flex items-center px-2">Մեր մասին</a>
-      <a href="#contact" class="min-h-[44px] flex items-center justify-center rounded-lg bg-blue-600 px-4 text-white my-1">Կապ</a>
-    </nav>
-  </div>
+
   <main>
-    <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 class="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">Էլեկտրիկ ծառայություններ և Խելացի Տներ Հայաստանում</h1>
-      <p class="mt-4 text-neutral-600">Պրոֆեսիոնալ էլեկտրամոնտաժ, սպասարկում և խելացի տան լուծումներ</p>
-    </section>
-    <section id="services" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h2 class="text-xl font-bold sm:text-2xl">Ծառայություններ</h2>
-    </section>
-    <section id="smart-home" class="bg-white py-8 sm:py-10">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-xl font-bold sm:text-2xl">Խելացի Տներ</h2>
+    <!-- Hero -->
+    <section class="border-b border-neutral-100 bg-gradient-to-b from-neutral-50 to-white">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+        <div class="max-w-3xl">
+          <p class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 sm:text-sm">
+            <span class="i-tabler-map-pin h-4 w-4"></span>
+            Երևան և մարզեր
+          </p>
+          <h1 class="mt-4 text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+            Էլեկտրիկ ծառայություններ և <span class="text-blue-600">խելացի տներ</span> Հայաստանում
+          </h1>
+          <p class="mt-4 max-w-2xl text-base text-neutral-600 sm:mt-5 sm:text-lg">
+            Պրոֆեսիոնալ էլեկտրամոնտաժ, սպասարկում և խելացի տան լուծումներ։ Անվտանգություն, հուսալիություն և ժամանակին իրականացում։
+          </p>
+          <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+            <a href="#contact" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              Պատվիրել ծառայություն
+              <span class="i-tabler-arrow-right h-5 w-5"></span>
+            </a>
+            <a href="#services" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-medium text-neutral-900 shadow-sm ring-1 ring-neutral-200 transition-colors hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+              Ծառայություններ
+            </a>
+          </div>
+        </div>
+
+        <dl class="mt-10 grid max-w-2xl grid-cols-3 gap-3 sm:mt-12 sm:gap-6">
+          {stats.map((s) => (
+            <div class="rounded-xl bg-white p-3 text-center shadow-sm ring-1 ring-neutral-200 sm:p-4">
+              <dt class="text-2xl font-bold text-blue-600 sm:text-3xl">{s.value}</dt>
+              <dd class="mt-1 text-xs text-neutral-600 sm:text-sm">{s.label}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
-    <section id="about" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h2 class="text-xl font-bold sm:text-2xl">Մեր մասին</h2>
-    </section>
-    <section id="contact" class="bg-neutral-900 py-8 text-white">
+
+    <!-- Services -->
+    <section id="services" class="scroll-mt-20 py-12 sm:py-16 lg:py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-xl font-bold sm:text-2xl">Կապ</h2>
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">Ծառայություններ</h2>
+          <p class="mt-3 text-base text-neutral-600 sm:text-lg">
+            Ամբողջական էլեկտրական լուծումներ՝ բնակելի, կոմերցիոն և արդյունաբերական օբյեկտների համար։
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          {services.map((s) => (
+            <article class="flex flex-col rounded-xl bg-white p-5 shadow-sm ring-1 ring-neutral-200 transition-shadow hover:shadow-md sm:p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-100">
+                <span class={`${s.icon} h-6 w-6 text-blue-600`}></span>
+              </span>
+              <h3 class="mt-4 text-lg font-semibold text-neutral-900">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">{s.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart home -->
+    <section id="smart-home" class="scroll-mt-20 border-y border-neutral-100 bg-neutral-50 py-12 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">Խելացի տներ</h2>
+            <p class="mt-3 text-base text-neutral-600 sm:text-lg">
+              Ինտեգրված լուծումներ, որոնք ապահովում են հարմարավետություն, անվտանգություն և էներգիայի խնայողություն։
+            </p>
+            <ul class="mt-8 space-y-5">
+              {smart.map((item) => (
+                <li class="flex gap-4">
+                  <span class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-blue-100">
+                    <span class={`${item.icon} h-6 w-6 text-blue-600`}></span>
+                  </span>
+                  <div>
+                    <h3 class="text-base font-semibold text-neutral-900">{item.title}</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-neutral-600">{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-3 shadow-xl sm:gap-4 sm:p-4">
+            {[
+              { icon: "i-tabler-bulb", label: "Լուսավորություն" },
+              { icon: "i-tabler-thermometer", label: "Ջեռուցում" },
+              { icon: "i-tabler-door", label: "Մուտք" },
+              { icon: "i-tabler-camera", label: "Տեսահսկում" },
+            ].map((c) => (
+              <div class="flex flex-col items-center gap-2 rounded-xl bg-white p-4 text-center sm:p-5">
+                <span class={`${c.icon} h-7 w-7 text-blue-600`}></span>
+                <span class="text-xs font-medium text-neutral-800 sm:text-sm">{c.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="scroll-mt-20 py-12 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">Մեր մասին</h2>
+          <p class="mt-3 text-base text-neutral-600 sm:text-lg">
+            Էլեկտրիկ Հայաստանը պրոֆեսիոնալ էլեկտրական ծառայություններ է մատուցում՝ կենտրոնանալով անվտանգության, որակի և հաճախորդի հարմարավետության վրա։
+          </p>
+        </div>
+        <div class="mx-auto mt-8 grid max-w-4xl gap-4 sm:mt-10 sm:grid-cols-3 sm:gap-6">
+          {[
+            { title: "Որակ", text: "Ընդունված ստանդարտներ և աշխատանքի պատշաճ վերահսկում։" },
+            { title: "Հուսալիություն", text: "Ժամանակին կատարում և թափանցիկ գնային քաղաքականություն։" },
+            { title: "Անվտանգություն", text: "Անվտանգությունը առաջնահերթություն է յուրաքանչյուր նախագծում։" },
+          ].map((c) => (
+            <div class="rounded-xl bg-white p-6 text-center shadow-sm ring-1 ring-neutral-200">
+              <h3 class="text-lg font-semibold text-neutral-900">{c.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">{c.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-20 bg-neutral-900 py-12 text-white sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Պատվիրեք ծառայություն</h2>
+          <p class="mt-3 text-base text-neutral-300 sm:text-lg">
+            Թողեք ձեր հարցումը և մենք կկապվենք ձեզ հետ հնարավորինս արագ։
+          </p>
+          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+            <a href="tel:+37400000000" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-medium text-neutral-900 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900">
+              <span class="i-tabler-phone h-5 w-5"></span>
+              Զանգահարել
+            </a>
+            <a href="mailto:info@electricarmenia.am" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900">
+              <span class="i-tabler-mail h-5 w-5"></span>
+              Էլ. նամակ
+            </a>
+          </div>
+          <p class="mt-6 text-sm text-neutral-400">*Կոնտակտային տվյալները կլրացվեն ավելի ուշ</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2">
+        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">EH</span>
+        <span class="text-sm font-semibold sm:text-base">Էլեկտրիկ Հայաստան</span>
+      </div>
+      <p class="text-center text-sm text-neutral-600 sm:text-right">
+        © 2026 Էլեկտրիկ Հայաստան։ Բոլոր իրավունքները պաշտպանված են։
+      </p>
+    </div>
+  </footer>
+
   <script>
-    const b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');
-    if(b&&m){b.onclick=()=>{const o=m.classList.toggle('hidden')===false;b.setAttribute('aria-expanded',String(o));};m.querySelectorAll('a').forEach(a=>a.onclick=()=>{m.classList.add('hidden');b.setAttribute('aria-expanded','false');});}
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    const iconOpen = document.getElementById("menuIconOpen");
+    const iconClose = document.getElementById("menuIconClose");
+
+    if (btn && menu) {
+      const setOpen = (open) => {
+        menu.classList.toggle("hidden", !open);
+        btn.setAttribute("aria-expanded", String(open));
+        iconOpen?.classList.toggle("hidden", open);
+        iconClose?.classList.toggle("hidden", !open);
+      };
+
+      btn.addEventListener("click", () => {
+        setOpen(menu.classList.contains("hidden"));
+      });
+
+      menu.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => setOpen(false));
+      });
+    }
   </script>
 </BaseLayout>

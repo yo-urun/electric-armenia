@@ -1,17 +1,30 @@
 ---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Էլեկտրիկ Հայաստան — էլեկտրիկ ծառայություններ և խելացի տներ",
+  description = "Պրոֆեսիոնալ էլեկտրամոնտաժ, սպասարկում և խելացի տան լուծումներ Հայաստանում։ Անվտանգություն, հուսալիություն և ժամանակին իրականացում։",
+} = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang="hy">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Էլեկտրիկ Հայաստան - Էլեկտրիկ ծառայություններ և Խելացի Տներ</title>
-		<meta name="description" content="Էլեկտրիկ ծառայություններ, էլեկտրամոնտաժ, խելացի տներ Հայաստանում. Ճշգրիտ, հուսալի, անվտանգ." />
-		<meta name="theme-color" content="#0f7b3e" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-	</head>
-	<body class="min-h-screen bg-neutral-50 text-neutral-900 antialiased">
-		<slot />
-	</body>
+
+<!doctype html>
+<html lang="hy" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#2563eb" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+    <slot />
+  </body>
 </html>
