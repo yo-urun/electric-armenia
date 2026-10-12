@@ -3,75 +3,71 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <header class="bg-white border-b border-neutral-200">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-            EH
-          </div>
-          <span class="text-lg sm:text-xl font-semibold">Էլեկտրիկ Հայաստան</span>
+  <header class="sticky top-0 z-10 border-b border-neutral-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
+      <a href="/" class="flex items-center gap-2 sm:gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white sm:h-9 sm:w-9 sm:text-sm">
+          EH
         </div>
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#services" class="text-sm font-medium text-neutral-700 hover:text-blue-600 transition-colors">Ծառայություններ</a>
-          <a href="#smart-home" class="text-sm font-medium text-neutral-700 hover:text-blue-600 transition-colors">Խելացի Տներ</a>
-          <a href="#about" class="text-sm font-medium text-neutral-700 hover:text-blue-600 transition-colors">Մեր մասին</a>
-          <a href="#contact" class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 transition-colors">Կապ</a>
-        </nav>
-        <button class="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-neutral-700 hover:bg-neutral-100">
-          <div class="i-tabler-menu h-5 w-5"></div>
-        </button>
-      </div>
+        <span class="text-sm font-semibold sm:text-base lg:text-lg">Էլեկտրիկ Հայաստան</span>
+      </a>
+      <nav class="hidden items-center gap-6 md:flex lg:gap-8">
+        <a href="#services" class="text-sm font-medium text-neutral-700 transition-colors hover:text-blue-600">Ծառայություններ</a>
+        <a href="#smart-home" class="text-sm font-medium text-neutral-700 transition-colors hover:text-blue-600">Խելացի Տներ</a>
+        <a href="#about" class="text-sm font-medium text-neutral-700 transition-colors hover:text-blue-600">Մեր մասին</a>
+        <a href="#contact" class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.995]">Կապ</a>
+      </nav>
+      <button class="inline-flex items-center justify-center rounded-lg p-2 text-neutral-700 transition-colors hover:bg-neutral-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 md:hidden" aria-label="Բացեք ընտրացանկը">
+        <div class="i-tabler-menu h-5 w-5"></div>
+      </button>
     </div>
   </header>
 
   <main>
     <section class="relative overflow-hidden bg-gradient-to-b from-white to-neutral-50">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900">
-              Էլեկտրիկ ծառայություններ և
-              <span class="text-blue-600">Խելացի Տներ</span>
-              Հայաստանում
+            <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+              Էլեկտրիկ ծառայություններ և <span class="text-blue-600">Խելացի Տներ</span> Հայաստանում
             </h1>
-            <p class="mt-6 text-lg sm:text-xl text-neutral-600 leading-relaxed">
+            <p class="mt-5 max-w-prose text-pretty text-base text-neutral-600 sm:mt-6 sm:text-lg lg:text-xl">
               Պրոֆեսիոնալ էլեկտրամոնտաժ, սպասարկում և խելացի տան լուծումներ։ Անվտանգություն, հուսալիություն և ժամանակին իրականացում։
             </p>
-            <div class="mt-8 flex flex-wrap gap-3 sm:gap-4">
-              <a href="#contact" class="inline-flex items-center rounded-lg bg-blue-600 px-5 sm:px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 transition-colors">
+            <div class="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.995] sm:px-5 sm:py-3 sm:text-base">
                 Պատվիրել ծառայություն
-                <div class="i-tabler-arrow-right ml-2 h-5 w-5"></div>
+                <div class="i-tabler-arrow-right h-5 w-5"></div>
               </a>
-              <a href="#services" class="inline-flex items-center rounded-lg bg-white px-5 sm:px-6 py-3 text-base font-medium text-neutral-900 shadow-sm ring-1 ring-neutral-200 hover:bg-neutral-50 transition-colors">
+              <a href="#services" class="inline-flex items-center rounded-lg bg-white px-4 py-2.5 text-sm font-medium text-neutral-900 shadow-sm ring-1 ring-neutral-200 transition-colors hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 active:scale-[0.995] sm:px-5 sm:py-3 sm:text-base">
                 Ծառայություններ
               </a>
             </div>
-            <div class="mt-10 grid grid-cols-3 gap-4 sm:gap-8">
-              <div class="text-center">
-                <div class="text-2xl sm:text-3xl font-bold text-blue-600">5+</div>
-                <div class="mt-1 text-xs sm:text-sm text-neutral-600">Տարիների փորձ</div>
+            <dl class="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:gap-6">
+              <div class="rounded-lg bg-white/70 p-3 text-center shadow-sm ring-1 ring-neutral-200 sm:p-4">
+                <dt class="text-2xl font-bold text-blue-600 sm:text-3xl">5+</dt>
+                <dd class="mt-1 text-xs text-neutral-600 sm:text-sm">Տարիների փորձ</dd>
               </div>
-              <div class="text-center">
-                <div class="text-2xl sm:text-3xl font-bold text-blue-600">100+</div>
-                <div class="mt-1 text-xs sm:text-sm text-neutral-600">Կատարված աշխատանք</div>
+              <div class="rounded-lg bg-white/70 p-3 text-center shadow-sm ring-1 ring-neutral-200 sm:p-4">
+                <dt class="text-2xl font-bold text-blue-600 sm:text-3xl">100+</dt>
+                <dd class="mt-1 text-xs text-neutral-600 sm:text-sm">Կատարված աշխատանք</dd>
               </div>
-              <div class="text-center">
-                <div class="text-2xl sm:text-3xl font-bold text-neutral-900">100%</div>
-                <div class="mt-1 text-xs sm:text-sm text-neutral-600">Անվտանգություն</div>
+              <div class="rounded-lg bg-white/70 p-3 text-center shadow-sm ring-1 ring-neutral-200 sm:p-4">
+                <dt class="text-2xl font-bold text-neutral-900 sm:text-3xl">100%</dt>
+                <dd class="mt-1 text-xs text-neutral-600 sm:text-sm">Անվտանգություն</dd>
               </div>
-            </div>
+            </dl>
           </div>
-          <div class="relative">
-            <div class="aspect-square lg:aspect-[4/5] rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-1 shadow-xl">
-              <div class="h-full w-full rounded-2xl bg-white flex items-center justify-center p-8">
-                <div class="text-center">
-                  <div class="mx-auto h-20 w-20 rounded-full bg-blue-100 flex items-center justify-center">
-                    <div class="i-tabler-bulb h-10 w-10 text-blue-600"></div>
-                  </div>
-                  <h3 class="mt-4 text-lg font-semibold text-neutral-900">Խելացի լուծումներ</h3>
-                  <p class="mt-2 text-sm text-neutral-600">Էներգիայի խնայողություն և հարմարավետություն</p>
+          <div class="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
+            <div class="aspect-[4/5] rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-1 shadow-xl sm:aspect-square lg:aspect-[4/5]">
+              <div class="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-white p-6 text-center sm:p-8">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 sm:h-20 sm:w-20">
+                  <div class="i-tabler-bulb h-8 w-8 text-blue-600 sm:h-10 sm:w-10"></div>
                 </div>
+                <h2 class="mt-4 text-lg font-semibold sm:mt-5 sm:text-xl">Խելացի լուծումներ</h2>
+                <p class="mt-2 max-w-xs text-pretty text-sm text-neutral-600 sm:text-base">
+                  Էներգիայի խնայողություն և հարմարավետություն
+                </p>
               </div>
             </div>
           </div>
@@ -80,16 +76,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </section>
   </main>
 
-  <footer class="bg-white border-t border-neutral-200">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm">EH</div>
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">EH</div>
           <span class="text-base font-semibold">Էլեկտրիկ Հայաստան</span>
         </div>
-        <div class="text-sm text-neutral-600 text-center md:text-right">
+        <p class="text-center text-sm text-neutral-600 md:text-right">
           © 2026 Էլեկտրիկ Հայաստան. Բոլոր իրավունքները պաշտպանված են։
-        </div>
+        </p>
       </div>
     </div>
   </footer>
