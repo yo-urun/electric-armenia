@@ -1,30 +1,51 @@
 ---
+import { locales, localePath, defaultLang, type Lang } from "../i18n/ui";
+
 interface Props {
-  title?: string;
-  description?: string;
+  lang?: Lang;
+  title: string;
+  description: string;
 }
 
-const {
-  title = "Էլեկտրիկ Հայաստան — էլեկտրիկ ծառայություններ և խելացի տներ",
-  description = "Պրոֆեսիոնալ էլեկտրամոնտաժ, սպասարկում և խելացի տան լուծումներ Հայաստանում։ Անվտանգություն, հուսալիություն և ժամանակին իրականացում։",
-} = Astro.props;
+const { lang = defaultLang, title, description } = Astro.props;
+const site = Astro.site ?? new URL("https://electric-armenia.pages.dev");
+const canonical = new URL(localePath[lang], site).href;
 ---
 
 <!doctype html>
-<html lang="hy" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="canonical" href={canonical} />
+
+    {
+      locales.map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(localePath[l], site).href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath[defaultLang], site).href} />
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap"
+    />
   </head>
-  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+  <body class="min-h-screen bg-white font-sans text-slate-900 antialiased">
     <slot />
   </body>
 </html>
