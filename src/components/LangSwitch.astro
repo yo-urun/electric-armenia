@@ -1,0 +1,31 @@
+---
+import { locales, localeShort, localePath, localeName, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<div
+  class="inline-flex items-stretch divide-x divide-line overflow-hidden rounded-sm border border-line"
+  role="group"
+  aria-label="Language"
+>
+  {
+    locales.map((l) => (
+      <a
+        href={localePath[l]}
+        hreflang={l}
+        title={localeName[l]}
+        aria-current={l === lang ? "true" : undefined}
+        class:list={[
+          "px-2.5 py-1.5 text-[11px] font-semibold tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-inset",
+          l === lang ? "bg-ink text-white" : "text-muted hover:bg-ground hover:text-ink",
+        ]}
+      >
+        {localeShort[l]}
+      </a>
+    ))
+  }
+</div>

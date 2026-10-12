@@ -14,13 +14,13 @@ const canonical = new URL(localePath[lang], site).href;
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#F3F4F2" />
     <link rel="canonical" href={canonical} />
 
     {
@@ -43,23 +43,24 @@ const canonical = new URL(localePath[lang], site).href;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Armenian:wght@400;500;600;700;800&family=Noto+Sans+Mono:wght@400;500&display=swap"
     />
   </head>
-  <body class="min-h-screen bg-white font-sans text-slate-900 antialiased">
+  <body class="min-h-screen bg-ground font-sans text-ink antialiased">
     <slot />
 
     <style is:global>
-      /* Prevent accidental horizontal scroll from decorative glows etc. */
       html,
       body {
         overflow-x: clip;
       }
-      /* Long compound words must not blow out the layout (break only when a word can't fit) */
-      :where(h1, h2, h3, h4, p, li, dd, dt, a, span, strong) {
+      :where(h1, h2, h3, h4, p, li, dt, dd, a, span, strong) {
         overflow-wrap: break-word;
       }
-      /* Section anchors clear the sticky header */
+      ::selection {
+        background: #e9a200;
+        color: #15181c;
+      }
       :target {
         scroll-margin-top: 5.5rem;
       }

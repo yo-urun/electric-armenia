@@ -4,27 +4,32 @@ export default defineConfig({
   presets: [presetUno(), presetTypography(), presetIcons()],
 
   theme: {
-    fontFamily: {
-      sans: "'Noto Sans','Noto Sans Armenian',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif",
+    colors: {
+      ground: "#F3F4F2",
+      surface: "#FFFFFF",
+      ink: "#15181C",
+      muted: "#5B636E",
+      line: "#D9DCD6",
+      signal: "#E9A200",
+      "signal-hover": "#D69400",
+      "on-signal": "#15181C",
+      status: "#2F7D5B",
     },
-    boxShadow: {
-      soft: "0 1px 2px rgba(15,23,42,.04), 0 12px 32px -12px rgba(15,23,42,.16)",
-      glow: "0 18px 60px -18px rgba(37,99,235,.55)",
+    fontFamily: {
+      sans: "'Noto Sans','Noto Sans Armenian',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif",
+      mono: "'Noto Sans Mono',ui-monospace,SFMono-Regular,Menlo,monospace",
     },
   },
 
   shortcuts: {
-    btn: "inline-flex items-center justify-center gap-2 rounded-xl px-6 min-h-12 text-base font-medium transition duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+    container: "mx-auto w-full max-w-6xl px-5 sm:px-8",
+    btn: "inline-flex items-center justify-center gap-2 rounded-sm px-5 min-h-11 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-ground",
     "btn-primary":
-      "btn bg-blue-600 text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 focus-visible:ring-blue-500",
-    "btn-glass":
-      "btn bg-white/10 text-white ring-1 ring-white/15 backdrop-blur hover:bg-white/15 focus-visible:ring-white",
-    "btn-light":
-      "btn bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50 focus-visible:ring-blue-500",
-    "pill": "inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium ring-1 transition-colors",
-    card: "rounded-2xl bg-white p-6 ring-1 ring-slate-900/5 shadow-soft",
-    "card-hover": "transition duration-200 ease-out hover:-translate-y-1 hover:shadow-glow",
-    "section-x": "mx-auto w-full max-w-7xl px-5 sm:px-8",
-    "eyebrow": "inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em]",
+      "btn bg-signal text-on-signal hover:bg-signal-hover focus-visible:ring-ink",
+    "btn-outline":
+      "btn bg-surface text-ink ring-1 ring-line hover:bg-ground focus-visible:ring-ink",
+    "link-ink":
+      "text-ink underline decoration-line decoration-1 underline-offset-4 transition-colors hover:decoration-signal",
+    rule: "border-t border-line",
   },
 });
